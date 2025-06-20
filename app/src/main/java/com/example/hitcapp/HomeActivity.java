@@ -23,14 +23,21 @@ public class HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-//        Button back = findViewById(R.id.btnBack1);
-//        back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent it = new Intent(getApplicationContext(),MainActivity.class);
-//                startActivity(it);
-//            }
-//        });
+        Button btnNext2 = findViewById(R.id.btndetail);
+        btnNext2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(),ProductDetail.class);
+                startActivity(it);
+            }
+        });
+        Button btnNext3 = findViewById(R.id.btnbuy);
+        btnNext3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(),BuyProduct.class);
+                startActivity(it);
+            }
+        });
     }
 }

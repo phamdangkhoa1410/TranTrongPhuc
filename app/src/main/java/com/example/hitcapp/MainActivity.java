@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 EditText objPass = findViewById(R.id.txtpass);
                 String txtpass = objPass.getText().toString();
 
-                if(txtemail.equals("phuc512dz@gmail.com") && txtpass.equals("123"))
+                if(txtemail.equals("phuc") && txtpass.equals("123"))
                 {
                     Intent it = new Intent(getApplicationContext(),HomeActivity.class);
                     startActivity(it);

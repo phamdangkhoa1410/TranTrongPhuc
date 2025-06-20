@@ -1,14 +1,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:id="@+id/main"
-    >
+    android:background="#FFFFFF">
 
-    <!-- 🔍 Thanh tìm kiếm -->
+    <!-- Thanh tìm kiếm -->
     <androidx.cardview.widget.CardView
         android:id="@+id/search_bar"
         android:layout_width="0dp"
@@ -27,17 +26,16 @@
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:drawablePadding="8dp"
             android:hint="Tìm kiếm sản phẩm"
-            android:textSize="14sp"
             android:inputType="text"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
     </androidx.cardview.widget.CardView>
 
-    <!-- 🖼 Banner -->
+    <!-- Banner -->
     <ImageView
         android:id="@+id/banner"
         android:layout_width="0dp"
-        android:layout_height="160dp"
+        android:layout_height="150dp"
         android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
         android:src="@drawable/banner_trangchu"
@@ -45,20 +43,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- 🏷 Tiêu đề danh mục -->
+    <!-- Tiêu đề danh mục -->
     <TextView
         android:id="@+id/titleKategori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Danh mục"
+        android:text="Danh Mục Hot"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginStart="16dp"
         app:layout_constraintTop_toBottomOf="@id/banner"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- 🔲 Grid danh mục -->
+    <!-- Grid danh mục -->
     <GridLayout
         android:id="@+id/gridKategori"
         android:layout_width="0dp"
@@ -77,8 +75,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
-            <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/icon_jumpman" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jordan" android:textSize="12sp"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/icon_jumpman" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jordan"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!-- Danh mục 2 -->
@@ -87,8 +92,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
-            <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/icon_adidas" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adidas" android:textSize="12sp"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/icon_adidas" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adidas"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!-- Danh mục 3 -->
@@ -97,33 +109,39 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
-            <ImageView android:layout_width="60dp" android:layout_height="60dp" android:src="@drawable/icon_nike" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nike" android:textSize="12sp"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/icon_nike" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nike"
+                android:textSize="12sp" />
         </LinearLayout>
+
+
     </GridLayout>
 
-    <!-- 🌟 Tiêu đề Sản phẩm nổi bật -->
+    <!-- Tiêu đề Sản phẩm nổi bật -->
     <TextView
         android:id="@+id/featuredTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sản phẩm nổi bật"
+        android:text="Sản Phẩm Nổi Bật"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/gridKategori"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- 🛒 Horizontal ScrollView -->
-    <HorizontalScrollView
+    <!-- Scroll dọc danh sách sản phẩm nổi bật -->
+    <ScrollView
         android:id="@+id/scrollFeatured"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:paddingBottom="12dp"
         android:scrollbars="none"
         app:layout_constraintTop_toBottomOf="@id/featuredTitle"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav"
@@ -131,68 +149,539 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:divider="@android:color/darker_gray"
+            android:showDividers="middle"
+            android:dividerPadding="8dp">
 
-            <!-- 🌟 Các sản phẩm nổi bật (1 → 6) -->
-            <!-- SP 1 -->
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:orientation="vertical" android:layout_marginEnd="12dp" android:gravity="center">
-                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/jordan_air1"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jordan Air 1" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5.000.000₫" android:textColor="#FF0000" android:textStyle="bold" android:textSize="12sp"/>
-            </LinearLayout>
+            <!-- Card sản phẩm -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:foreground="?android:attr/selectableItemBackground">
 
-            <!-- SP 2 -->
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:orientation="vertical" android:layout_marginEnd="12dp" android:gravity="center">
-                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/adidas_samba"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adidas Samba" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2.500.000₫" android:textColor="#FF0000" android:textStyle="bold" android:textSize="12sp"/>
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
 
-            <!-- SP 3 -->
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:orientation="vertical" android:layout_marginEnd="12dp" android:gravity="center">
-                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nike_air_force1"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nike Air Force 1" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.800.000₫" android:textColor="#FF0000" android:textStyle="bold" android:textSize="12sp"/>
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="73dp"
+                        android:background="@drawable/icon_jumpman"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/jordan_air1" />
 
-            <!-- SP 4 -->
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:orientation="vertical" android:layout_marginEnd="12dp" android:gravity="center">
-                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nike_air_jordan"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nike Air Jordan 1 Retro" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4.200.000₫" android:textColor="#FF0000" android:textStyle="bold" android:textSize="12sp"/>
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-            <!-- SP 5 -->
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:orientation="vertical" android:layout_marginEnd="12dp" android:gravity="center">
-                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/adidas_campus"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adidas Campus" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.833.000₫" android:textColor="#FF0000" android:textStyle="bold" android:textSize="12sp"/>
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jordan Air 1"
+                            android:textColor="#212121"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-            <!-- SP 6 -->
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:orientation="vertical" android:gravity="center">
-                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/nike_blazer_mid"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nike Blazer Mid" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.050.100₫" android:textColor="#FF0000" android:textStyle="bold" android:textSize="12sp"/>
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Jordan Air Force 1 được làm từ da thật và da tổng hợp cao cấp, đế cao su bền bỉ với lớp đệm Air-Sole mang lại sự êm ái tối ưu."
+                            android:textColor="#666666"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="5.000.000₫"
+                            android:textColor="#D32F2F"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/btnbuy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="12dp"
+                                android:backgroundTint="#4CAF50"
+                                android:text="Mua"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp"
+                                tools:ignore="DuplicateIds" />
+
+                            <Button
+                                android:id="@+id/btndetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="#2196F3"
+                                android:text="Chi tiết"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card sản phẩm -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/adidas_samba"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/icon_adidas" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Adidas Samba"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#212121" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Adidas Samba sử dụng chất liệu da lộn mềm mại, đế cao su đặc chống trượt và lót trong êm ái, phù hợp cho cả trong nhà và ngoài trời."
+                            android:textSize="13sp"
+                            android:textColor="#666666"
+                            android:layout_marginTop="2dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2.500.000₫"
+                            android:textSize="15sp"
+                            android:textColor="#D32F2F"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <Button
+                                android:id="@+id/btnbuy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mua"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#4CAF50"
+                                android:textSize="13sp"
+                                android:layout_marginEnd="12dp" />
+
+                            <Button
+                                android:id="@+id/btndetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chi tiết"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#2196F3"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card sản phẩm -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/nike_air_force1"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/icon_nike" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nike Air Force 1"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#212121" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nike Air Force 1 được chế tác từ da cao cấp, đế ngoài cao su chắc chắn cùng công nghệ đệm Air-Sole mang lại sự thoải mái và độ bền vượt trội."
+                            android:textSize="13sp"
+                            android:textColor="#666666"
+                            android:layout_marginTop="2dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3.800.000₫"
+                            android:textSize="15sp"
+                            android:textColor="#D32F2F"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <Button
+                                android:id="@+id/btnbuy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mua"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#4CAF50"
+                                android:textSize="13sp"
+                                android:layout_marginEnd="12dp" />
+
+                            <Button
+                                android:id="@+id/btndetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chi tiết"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#2196F3"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card sản phẩm -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/nike_air_jordan"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/icon_nike" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nike Air Jordan 1 Retro"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#212121" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nike Air Jordan 1 Retro sử dụng chất liệu da cao cấp kết hợp da lộn mềm mại, đế cao su bền chắc và lớp lót trong êm ái, mang đến phong cách cổ điển cùng cảm giác thoải mái tối ưu."
+                            android:textSize="13sp"
+                            android:textColor="#666666"
+                            android:layout_marginTop="2dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4.200.000₫"
+                            android:textSize="15sp"
+                            android:textColor="#D32F2F"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <Button
+                                android:id="@+id/btnbuy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mua"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#4CAF50"
+                                android:textSize="13sp"
+                                android:layout_marginEnd="12dp" />
+
+                            <Button
+                                android:id="@+id/btndetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chi tiết"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#2196F3"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card sản phẩm -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/adidas_samba"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/icon_adidas" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Adidas Campus"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#212121" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Adidas Campus được làm từ chất liệu da lộn cao cấp, đế cao su bền bỉ và lớp lót trong mềm mại, mang lại sự thoải mái và phong cách cổ điển đặc trưng."
+                            android:textSize="13sp"
+                            android:textColor="#666666"
+                            android:layout_marginTop="2dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3.833.000₫"
+                            android:textSize="15sp"
+                            android:textColor="#D32F2F"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <Button
+                                android:id="@+id/btnbuy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mua"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#4CAF50"
+                                android:textSize="13sp"
+                                android:layout_marginEnd="12dp" />
+
+                            <Button
+                                android:id="@+id/btndetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chi tiết"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#2196F3"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card sản phẩm -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/nike_blazer_mid"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/icon_nike" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nike Blazer Mid"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#212121" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nike Blazer Mid được làm từ da tổng hợp và da thật cao cấp, đế cao su chắc chắn cùng phần cổ giày cao ôm sát, mang lại sự thoải mái và hỗ trợ tối ưu."
+                            android:textSize="13sp"
+                            android:textColor="#666666"
+                            android:layout_marginTop="2dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3.050.000₫"
+                            android:textSize="15sp"
+                            android:textColor="#D32F2F"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <Button
+                                android:id="@+id/btnbuy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mua"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#4CAF50"
+                                android:textSize="13sp"
+                                android:layout_marginEnd="12dp" />
+
+                            <Button
+                                android:id="@+id/btndetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chi tiết"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:backgroundTint="#2196F3"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+
+            <!-- Copy CardView này để thêm sản phẩm khác -->
 
         </LinearLayout>
-    </HorizontalScrollView>
+    </ScrollView>
 
-    <!-- 📱 Thanh điều hướng dưới -->
+
+    <!-- Thanh điều hướng dưới -->
     <LinearLayout
         android:id="@+id/bottom_nav"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="50dp"
         android:background="#FFFFFF"
         android:orientation="horizontal"
         android:gravity="center"
